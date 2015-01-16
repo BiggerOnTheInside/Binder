@@ -1,4 +1,7 @@
-/* Copyright 2014 Walt Pach, all rights reserved */
+/***************************************************************************************************/
+/** Copyright 2015 BiggerOnTheInside (development), all rights reserved.                           */
+/** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/Binder.txt)   */
+/***************************************************************************************************/
 
 package net.BiggerOnTheInside.Binder;
 
