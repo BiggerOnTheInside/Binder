@@ -5,16 +5,8 @@
 
 package net.BiggerOnTheInside.Binder;
 
-public class BlockAir extends Block{
 
-	@Override
-	public byte getID() {
-		return 0;
-	}
-
-	@Override
-	public BlockTextureCoordinate getTextureCoordinates() {
-		return new BlockTextureCoordinate(-1, -1);
-	}
-
+public abstract class VoxelRenderer {
+	public abstract void renderBlock(Block b, float x, float y, float z);
+	public abstract void renderWireframeBlock(Block b, float x, float y, float z);
 }

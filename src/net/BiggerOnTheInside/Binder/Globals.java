@@ -5,16 +5,6 @@
 
 package net.BiggerOnTheInside.Binder;
 
-public class BlockAir extends Block{
-
-	@Override
-	public byte getID() {
-		return 0;
-	}
-
-	@Override
-	public BlockTextureCoordinate getTextureCoordinates() {
-		return new BlockTextureCoordinate(-1, -1);
-	}
-
+public class Globals {
+	public final static float TEXTURES_PER_SHEET = 32f;
 }
