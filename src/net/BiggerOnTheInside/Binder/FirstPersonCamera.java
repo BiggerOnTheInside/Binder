@@ -87,12 +87,14 @@ public class FirstPersonCamera
     //this dose basic what gluLookAt() does
     public void lookThrough()
     {
+    	GL11.glPushMatrix();
         //roatate the pitch around the X axis
         GL11.glRotatef(pitch, 1.0f, 0.0f, 0.0f);
         //roatate the yaw around the Y axis
         GL11.glRotatef(yaw, 0.0f, 1.0f, 0.0f);
         //translate to the position vector's location
         GL11.glTranslatef(position.x, position.y, position.z);
+        GL11.glPopMatrix();
     }
     
     public boolean isKeyPressed(int keyCode) {

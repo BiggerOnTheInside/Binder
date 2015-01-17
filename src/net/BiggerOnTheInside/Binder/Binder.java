@@ -137,7 +137,7 @@ public class Binder {
 		GL11.glClearDepth(1.0); 
         
         /* Enable OpenGL depth test. */
-		GL11.glEnable(GL_DEPTH_TEST);
+		//GL11.glEnable(GL_DEPTH_TEST);
         
         /* Enable OpenGL face culling. */
 		GL11.glEnable(GL_CULL_FACE);
@@ -146,11 +146,12 @@ public class Binder {
 		GL11.glCullFace(GL11.GL_BACK);
         
         /* Set the OpenGL depth function to lequal. */
-        GL11.glDepthFunc(GL11.GL_LEQUAL); 
+      //  GL11.glDepthFunc(GL11.GL_LEQUAL); 
 
         /* Set the OpenGL matrix mode to projection. */
         GL11.glMatrixMode(GL11.GL_PROJECTION); 
         
+        GL11.glClearColor(.9f, 1f, 1f, 0.0f);
         /* Load the OpenGL identity. */
         GL11.glLoadIdentity();
 
@@ -190,10 +191,9 @@ public class Binder {
 
         log.info(Util.ENTERING_GAME_LOOP);
 		while (!Display.isCloseRequested() && !Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
-			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-			//Clear();
+			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 			RenderForeground();
-	        //Render();
+	        Render();
 	        Display.update();
 	        Display.sync(30);
 	        
@@ -222,6 +222,7 @@ public class Binder {
 	 * <p>This is the main render method, it clears the screen, calls the world renderer function, which renders all the visible chunks.</p>
 	 */
 	private void Render() {
+		DimensionSwitcher.setOrphoOff(displayMode.getWidth(), displayMode.getHeight());
 		BlockRenderer.renderBlock(Block.DIRT, 0f, 0f, 0f);
 	}
 
@@ -231,8 +232,8 @@ public class Binder {
 	}
 	
 	private void RenderForeground(){
-		Color.white.bind();
-		font.drawString(100, 50, "Walt Is pretty cool!", Color.yellow);
+		DimensionSwitcher.setOrphoOn(displayMode.getWidth(), displayMode.getHeight());
+		TextRenderer.drawString("testy test", 100, 200);
 	}
 	
 	/**
