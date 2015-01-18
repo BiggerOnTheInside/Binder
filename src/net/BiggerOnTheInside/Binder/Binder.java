@@ -1,7 +1,7 @@
-/***************************************************************************************************/
-/** Copyright 2015 BiggerOnTheInside (development), all rights reserved.                           */
-/** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/Binder.txt)   */
-/***************************************************************************************************/
+/***************************************************************************************************************/
+/** Copyright 2015 BiggerOnTheInside (development), all rights reserved.                                       */
+/** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/blob/master/Binder.txt)   */
+/***************************************************************************************************************/
 
 package net.BiggerOnTheInside.Binder;
 
@@ -17,13 +17,15 @@ import org.lwjgl.util.glu.GLU;
 
 public class Binder {
 	private DisplayMode displayMode;
+	private GameLoop loop;
 	
 	public void start(){
+		loop = new GameLoop();
+		
 		try{
 			createWindow();
 			initGL();
-			init();
-			run();
+			loop.run();
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -64,40 +66,6 @@ public class Binder {
         Display.create();
 	}
 	
-	public void init(){
-		
-	}
-	
-	public void run(){
-		while(!Display.isCloseRequested() && !Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
-			render();
-			update();
-			
-			Display.update();
-			Display.sync(60);
-		}
-		Display.destroy();
-	}
-	
-	public void update(){}
-	
-	public void render(){
-		 render2D();
-		 render3D();
-	}
-	
-	public void render2D(){}
-	
-	public void render3D(){
-		 GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
-		 GL11.glLoadIdentity();
-		 GL11.glTranslatef(-3f, 0.0f, -20f);
-		 GL11.glRotatef(45f, 0.4f, 1.0f, 0.1f);
-		 GL11.glColor3f(0.5f, 0.5f, 1.0f); 
-		 
-		 BlockRenderer.renderBlock(Block.DIRT, 0f, 0f, 0f);
-		 BlockRenderer.renderWireframeBlock(Block.DIRT, 0f, 1f, 1f);
-	}
 	public static void main(String args[]){
 		new Binder().start();
 	}
