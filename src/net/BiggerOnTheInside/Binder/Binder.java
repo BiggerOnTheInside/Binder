@@ -5,6 +5,9 @@
 
 package net.BiggerOnTheInside.Binder;
 
+import net.BiggerOnTheInside.Binder.engine.Block;
+import net.BiggerOnTheInside.Binder.engine.BlockRenderer;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
@@ -73,22 +76,28 @@ public class Binder {
 			Display.update();
 			Display.sync(60);
 		}
-		
+		Display.destroy();
 	}
 	
 	public void update(){}
 	
 	public void render(){
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
-		GL11.glLoadIdentity();
-		GL11.glTranslatef(-3f, 0.0f, -20f);
-		GL11.glRotatef(45f, 0.4f, 1.0f, 0.1f);
-		GL11.glColor3f(0.5f, 0.5f, 1.0f); 
-		
-		
+		 render2D();
+		 render3D();
 	}
+	
 	public void render2D(){}
-	public void render3D(){}
+	
+	public void render3D(){
+		 GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+		 GL11.glLoadIdentity();
+		 GL11.glTranslatef(-3f, 0.0f, -20f);
+		 GL11.glRotatef(45f, 0.4f, 1.0f, 0.1f);
+		 GL11.glColor3f(0.5f, 0.5f, 1.0f); 
+		 
+		 BlockRenderer.renderBlock(Block.DIRT, 0f, 0f, 0f);
+		 BlockRenderer.renderWireframeBlock(Block.DIRT, 0f, 1f, 1f);
+	}
 	public static void main(String args[]){
 		new Binder().start();
 	}

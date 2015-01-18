@@ -5,19 +5,6 @@
 
 package net.BiggerOnTheInside.Binder;
 
-import net.BiggerOnTheInside.Binder.engine.Block;
-import net.BiggerOnTheInside.Binder.engine.BlockTextureCoordinate;
-
-public class BlockAir extends Block{
-
-	@Override
-	public byte getID() {
-		return 0;
-	}
-
-	@Override
-	public BlockTextureCoordinate getTextureCoordinates() {
-		return new BlockTextureCoordinate(-1, -1);
-	}
+public class JSONManager {
 
 }

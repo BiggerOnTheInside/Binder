@@ -8,16 +8,16 @@ package net.BiggerOnTheInside.Binder;
 import net.BiggerOnTheInside.Binder.engine.Block;
 import net.BiggerOnTheInside.Binder.engine.BlockTextureCoordinate;
 
-public class BlockAir extends Block{
+public class BlockDirt extends Block{
 
 	@Override
 	public byte getID() {
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public BlockTextureCoordinate getTextureCoordinates() {
-		return new BlockTextureCoordinate(-1, -1);
+		return new BlockTextureCoordinate(5f, 0f);
 	}
 
 }

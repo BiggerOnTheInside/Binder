@@ -3,21 +3,24 @@
 /** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/Binder.txt)   */
 /***************************************************************************************************/
 
-package net.BiggerOnTheInside.Binder;
+package net.BiggerOnTheInside.Binder.engine;
 
-import net.BiggerOnTheInside.Binder.engine.Block;
-import net.BiggerOnTheInside.Binder.engine.BlockTextureCoordinate;
+import net.BiggerOnTheInside.Binder.Globals;
 
-public class BlockAir extends Block{
-
-	@Override
-	public byte getID() {
-		return 0;
+public class BlockTextureCoordinate {
+	private float x, y;
+	private float size = 1 / Globals.TEXTURES_PER_SHEET;
+	
+	public BlockTextureCoordinate(float x, float y){
+		this.x = x * size;
+		this.y = y * size;
 	}
-
-	@Override
-	public BlockTextureCoordinate getTextureCoordinates() {
-		return new BlockTextureCoordinate(-1, -1);
+	
+	public float x(){
+		return this.x;
 	}
-
+	
+	public float y(){
+		return this.y;
+	}
 }
