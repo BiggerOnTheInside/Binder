@@ -3,11 +3,22 @@
 /** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/blob/master/Binder.txt)   */
 /***************************************************************************************************************/
 
-package net.BiggerOnTheInside.Binder;
+package net.BiggerOnTheInside.Binder.event;
 
+import java.util.ArrayList;
 
-
-public abstract class VoxelRenderer {
-	public abstract void renderBlock(Block b, float x, float y, float z);
-	public abstract void renderWireframeBlock(Block b, float x, float y, float z);
+public class EventManager {
+	private static ArrayList<Listener> listeners = new ArrayList<Listener>();
+	
+	public static void addListener(Listener a){
+		if(!listeners.contains(a)){
+			listeners.add(a);
+		}
+	}
+	
+	public static void fireEvent(Event e){
+		for(Listener a : listeners){
+			a.catchEvent(e);
+		}
+	}
 }

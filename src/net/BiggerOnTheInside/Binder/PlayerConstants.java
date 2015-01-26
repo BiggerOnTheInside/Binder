@@ -5,9 +5,11 @@
 
 package net.BiggerOnTheInside.Binder;
 
-
-
-public abstract class VoxelRenderer {
-	public abstract void renderBlock(Block b, float x, float y, float z);
-	public abstract void renderWireframeBlock(Block b, float x, float y, float z);
+public class PlayerConstants {
+    public static final float MOUSE_SENSITIVITY = 0.05f;
+    public static final float MOVEMENT_SPEED = 10.0f;
+    public static float DELTA_X;
+    public static float DELTA_Y;
+    public static float DELTA_TIME;
+    public static final int VIEW_DISTANCE = 5;
 }

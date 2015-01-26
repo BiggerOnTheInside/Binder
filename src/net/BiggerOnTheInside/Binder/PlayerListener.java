@@ -5,9 +5,16 @@
 
 package net.BiggerOnTheInside.Binder;
 
+import net.BiggerOnTheInside.Binder.event.Event;
+import net.BiggerOnTheInside.Binder.event.Listener;
+import net.BiggerOnTheInside.Binder.event.PlayerMoveEvent;
 
 
-public abstract class VoxelRenderer {
-	public abstract void renderBlock(Block b, float x, float y, float z);
-	public abstract void renderWireframeBlock(Block b, float x, float y, float z);
+public class PlayerListener extends Listener {
+	@Override
+	public void catchEvent(Event e) {
+		if(e.getType() instanceof PlayerMoveEvent){
+			System.out.println("Hello!");
+		}
+	}
 }

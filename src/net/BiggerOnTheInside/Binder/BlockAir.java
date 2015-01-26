@@ -5,9 +5,6 @@
 
 package net.BiggerOnTheInside.Binder;
 
-import net.BiggerOnTheInside.Binder.engine.Block;
-import net.BiggerOnTheInside.Binder.engine.BlockTextureCoordinate;
-
 public class BlockAir extends Block{
 
 	@Override
@@ -16,8 +13,7 @@ public class BlockAir extends Block{
 	}
 
 	@Override
-	public BlockTextureCoordinate getTextureCoordinates() {
+	public BlockTextureCoordinate getTextureCoordinates(BlockFace a) {
 		return new BlockTextureCoordinate(-1, -1);
 	}
-
 }

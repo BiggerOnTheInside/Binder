@@ -6,8 +6,8 @@
 package net.BiggerOnTheInside.Binder;
 
 
-
-public abstract class VoxelRenderer {
-	public abstract void renderBlock(Block b, float x, float y, float z);
-	public abstract void renderWireframeBlock(Block b, float x, float y, float z);
+public abstract class HumanEntity extends LivingEntity {
+	public HumanEntity(String a, float b, float c, boolean d) {
+		super(a, b, c, d);
+	}
 }

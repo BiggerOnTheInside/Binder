@@ -5,11 +5,7 @@
 
 package net.BiggerOnTheInside.Binder;
 
-import net.BiggerOnTheInside.Binder.engine.Block;
-import net.BiggerOnTheInside.Binder.engine.BlockRenderer;
-
 import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
@@ -35,7 +31,7 @@ public class Binder {
 	public void initGL(){
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
         GL11.glShadeModel(GL11.GL_SMOOTH);
-        GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); 
+        GL11.glClearColor(0.9f, 1.0f, 1.0f, 0.0f); 
         GL11.glClearDepth(1.0); 
         GL11.glEnable(GL11.GL_DEPTH_TEST);
         GL11.glDepthFunc(GL11.GL_LEQUAL); 
@@ -51,7 +47,7 @@ public class Binder {
 	}
 	
 	public void createWindow() throws LWJGLException{
-		Display.setFullscreen(false);
+		Display.setFullscreen(true);
         DisplayMode d[] = Display.getAvailableDisplayModes();
         for (int i = 0; i < d.length; i++) {
             if (d[i].getWidth() == 640
@@ -62,7 +58,7 @@ public class Binder {
             }
         }
         Display.setDisplayMode(displayMode);
-        Display.setTitle("LWJGL Voxel engine");
+        Display.setTitle("LWJGL Voxel engine AKA Binder");
         Display.create();
 	}
 	
