@@ -86,7 +86,7 @@ public class Player extends HumanEntity {
 	}
 
 	@Override
-	public void update() {
+	public void a() {
 		PlayerConstants.DELTA_TIME = .01f; //(time - lastTime)/1000.0f;
         //distance in mouse movement from the last getDX() call.
 		PlayerConstants.DELTA_X = Mouse.getDX();
@@ -137,20 +137,25 @@ public class Player extends HumanEntity {
 	}
 
 	@Override
-	public void render() {
+	public void b() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void dispose() {
+	public void c() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void rebuild() {
+	public void d() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void update() {
+		a();
 	}
 }

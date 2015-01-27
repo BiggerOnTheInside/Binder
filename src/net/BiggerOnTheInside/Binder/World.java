@@ -5,26 +5,37 @@
 
 package net.BiggerOnTheInside.Binder;
 
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.lwjgl.util.vector.Vector3f;
+
 public class World implements WorldObject {
+	private ArrayList<Chunk> chunks;
 	
 	@Override
-	public void update() {
+	public void a() {
 
 	}
 
 	@Override
-	public void render() {
-
+	public void b() {
+		for(Chunk a : (Chunk[])chunks.toArray()){
+			a.b();
+		}
 	}
 
 	@Override
-	public void dispose() {
-
+	public void c() {
+		chunks.clear();
 	}
 
 	@Override
-	public void rebuild() {
-		// TODO Auto-generated method stub
+	public void d() {
+		Chunk a = new Chunk(0, 0, 0), b = new Chunk(1, 0, 0), c = new Chunk(0, 1, 1);
 		
+		chunks.add(a);
+		chunks.add(b);
+		chunks.add(c);
 	}
 }

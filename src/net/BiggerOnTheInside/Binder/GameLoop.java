@@ -56,6 +56,7 @@ public class GameLoop {
 		
 		System.out.println(p.getLocation().x);
 	}
+	Chunk c = new Chunk(0, 0, 0);
 	
 	public void render(){
 		if(state == GameState.Playing){
@@ -72,6 +73,7 @@ public class GameLoop {
 		 /* For some reason, needs commenting for camera to work :p */
 		 //GL11.glLoadIdentity();
 		 
+		 c.b();
 		 BlockRenderer.renderBlock(Block.DIRT, 0f, 0f, 0f);
 		 BlockRenderer.renderWireframeBlock(Block.DIRT, 0f, 1f, 1f);
 	}

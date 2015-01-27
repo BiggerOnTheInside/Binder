@@ -6,8 +6,15 @@
 package net.BiggerOnTheInside.Binder;
 
 public interface WorldObject {
-	public void update();
-	public void render();
-	public void dispose();
-	public void rebuild();
+	// Update.
+	public void a();
+	
+	// Render.
+	public void b();
+	
+	// Dispose.
+	public void c();
+	
+	// Rebuild.
+	public void d();
 }

@@ -13,7 +13,7 @@ public class Chunk implements WorldObject{
 	public static int CHUNK_SIZE = 16;
 	public static int CHUNK_TYPE_AIR = 0;
 	public static int CHUNK_TYPE_MIXED = 1;
-	public static int CHUNK_AIR_CHANCE = 0;
+	public static int CHUNK_AIR_CHANCE = -1;
 	
 	private byte[][][] blocks;
 	private boolean isActive;
@@ -29,7 +29,7 @@ public class Chunk implements WorldObject{
 		this.blocks   = new byte[CHUNK_SIZE][CHUNK_SIZE][CHUNK_SIZE];
 		this.randGen  = new Random();
 		
-		rebuild();
+		d();
 	}
 	
 	private boolean isTileNotInView(int x, int y, int z){
@@ -85,25 +85,11 @@ public class Chunk implements WorldObject{
 	}
 
 	@Override
-	public void update() {}
+	public void a() {}
+
 
 	@Override
-	public void rebuild() {
-		for(int x = 0; x < CHUNK_SIZE - 1; x++){
-			for(int y = 0; y < CHUNK_SIZE - 1; y++){
-				for(int z = 0; z < CHUNK_SIZE - 1; z++){
-					blocks[x][y][z] = Block.DIRT.getID();
-					
-					if(randGen.nextInt(10) == Chunk.CHUNK_AIR_CHANCE){
-						blocks[x][y][z] = Block.AIR.getID();
-					}
-				}
-			}
-		}
-	}
-
-	@Override
-	public void render() {
+	public void b() {
 		for(int x = (int) position.x; x < position.x + (CHUNK_SIZE - 1); x++){
 			for(int y = (int) position.y; y < position.y + (CHUNK_SIZE - 1); y++){
 				for(int z = (int) position.z; z < position.z + (CHUNK_SIZE - 1); z++){
@@ -118,7 +104,22 @@ public class Chunk implements WorldObject{
 			}
 		}
 	}
-
+	
 	@Override
-	public void dispose() {}
+	public void c() {}
+	
+	@Override
+	public void d() {
+		for(int x = 0; x < CHUNK_SIZE - 1; x++){
+			for(int y = 0; y < CHUNK_SIZE - 1; y++){
+				for(int z = 0; z < CHUNK_SIZE - 1; z++){
+					blocks[x][y][z] = Block.DIRT.getID();
+					
+					if(randGen.nextInt(10) == Chunk.CHUNK_AIR_CHANCE){
+						blocks[x][y][z] = Block.AIR.getID();
+					}
+				}
+			}
+		}
+	}
 }
