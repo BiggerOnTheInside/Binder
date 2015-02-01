@@ -18,7 +18,7 @@ public class TextureManager {
 	
 	public void loadTextureSheet(String name){
 		try {
-			this.sheet = TextureLoader.getTexture("PNG", Binder.class.getResource("resources/terrain.png").openStream());
+			this.sheet = TextureLoader.getTexture("PNG", Binder.class.getResource(path).openStream());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
@@ -27,7 +27,7 @@ public class TextureManager {
 	
 	public void loadTextureSheet(String name, boolean autoBind){
 		try {
-			this.sheet = TextureLoader.getTexture("PNG", Binder.class.getResource("resources/textures/terrain.png").openStream());
+			this.sheet = TextureLoader.getTexture("PNG", Binder.class.getResource(path).openStream());
 			this.sheet.bind();
 		} 
 		catch (Exception e) {

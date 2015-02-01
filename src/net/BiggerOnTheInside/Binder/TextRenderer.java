@@ -5,11 +5,21 @@
 
 package net.BiggerOnTheInside.Binder;
 
-public class PlayerConstants {
-    public static final float MOUSE_SENSITIVITY = 0.05f;
-    public static final float MOVEMENT_SPEED = 1.0f;
-    public static float DELTA_X;
-    public static float DELTA_Y;
-    public static float DELTA_TIME;
-    public static final int VIEW_DISTANCE = 5;
+import java.awt.Font;
+import java.io.IOException;
+
+import org.newdawn.slick.Color;
+import org.newdawn.slick.TrueTypeFont;
+import org.newdawn.slick.opengl.TextureLoader;
+
+import com.nishu.utils.Color4f;
+
+public class TextRenderer {
+	static TrueTypeFont ttf;
+	
+	public static void renderString(String s){
+		ttf = new TrueTypeFont(new Font("Times New Roman", Font.BOLD, 10), false);
+		
+		ttf.drawString(10f, 25f, s, Color.yellow);
+	}
 }

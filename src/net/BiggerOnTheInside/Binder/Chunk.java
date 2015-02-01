@@ -17,13 +17,13 @@ public class Chunk implements WorldObject{
 	
 	private byte[][][] blocks;
 	private boolean isActive;
-	private Vector3f position;
+	public Vector3f position;
 	private Random randGen;
 	
 	public Chunk(float x, float y, float z){
-		x *= 16f;
-		y *= 16f; y += 16f;
-		z *= 16f;
+		x *= 15f; x += 15f;
+		y *= 15f; y += 15f;
+		z *= 15f; z += 15f;
 		
 		this.position = new Vector3f(x, y, z);
 		this.blocks   = new byte[CHUNK_SIZE][CHUNK_SIZE][CHUNK_SIZE];
@@ -113,13 +113,29 @@ public class Chunk implements WorldObject{
 		for(int x = 0; x < CHUNK_SIZE - 1; x++){
 			for(int y = 0; y < CHUNK_SIZE - 1; y++){
 				for(int z = 0; z < CHUNK_SIZE - 1; z++){
-					blocks[x][y][z] = Block.DIRT.getID();
+					blocks[x][y][z] = Block.BOOKCASE.getID();
 					
 					if(randGen.nextInt(10) == Chunk.CHUNK_AIR_CHANCE){
 						blocks[x][y][z] = Block.AIR.getID();
 					}
+					
+					if(y == 0){
+						blocks[x][y][z] = Block.DIRT.getID();
+					}
+					
+					if(y < 6 && y > 0){
+						blocks[x][y][z] = Block.GRASS.getID();
+					}
+					
+					if(y > 6){
+						blocks[x][y][z] = Block.BOOKCASE.getID();
+					}
 				}
 			}
 		}
+	}
+	
+	public void e(Block b, int x, int y, int z){
+		blocks[x][y][z] = b.getID();
 	}
 }

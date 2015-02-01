@@ -22,5 +22,8 @@
 	<classpathentry kind="lib" path="/Users/Walt/Documents/Java_Libs/tinylinepp.jar"/>
 	<classpathentry kind="lib" path="/Users/Walt/Documents/Java_Libs/slick.jar"/>
 	<classpathentry kind="lib" path="/Users/Walt/Documents/Java_Libs/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/Users/Walt/Documents/Java_Libs/GLUtils.jar"/>
+	<classpathentry kind="lib" path="/Users/Walt/Documents/Java_Libs/jackson-core-2.2.4.jar"/>
+	<classpathentry kind="lib" path="/Users/Walt/Documents/Java_Libs/dropbox-core-sdk-1.7.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

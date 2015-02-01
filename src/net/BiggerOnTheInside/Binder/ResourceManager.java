@@ -19,7 +19,7 @@ public class ResourceManager {
 	}
 	
 	public void init(){
-		this.textureManager = new TextureManager(path + "/textures");
+		this.textureManager = new TextureManager(path + "/textures/terrain.png");
 		this.jsonManager = new JSONManager("Binder.json", false);
 	}
 	

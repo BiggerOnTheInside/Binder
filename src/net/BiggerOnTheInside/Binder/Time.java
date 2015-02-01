@@ -5,11 +5,30 @@
 
 package net.BiggerOnTheInside.Binder;
 
-public class PlayerConstants {
-    public static final float MOUSE_SENSITIVITY = 0.05f;
-    public static final float MOVEMENT_SPEED = 1.0f;
-    public static float DELTA_X;
-    public static float DELTA_Y;
-    public static float DELTA_TIME;
-    public static final int VIEW_DISTANCE = 5;
+
+public class Time {
+	private static long lastTime;
+	
+	/**
+	 * Get the time in milliseconds
+	 * 
+	 * @return The system time in milliseconds
+	 */
+	public static long getTime() {
+	    return System.nanoTime();
+	}
+	
+	public static int getDelta() {
+	    long time = getTime();
+	    int delta = (int) (time - lastTime) / 1000;
+	    lastTime = time;
+	         
+	    System.out.println(delta);
+	    
+	    return delta;
+	}
+	
+	public static void update(){
+		lastTime = System.nanoTime();
+	}
 }

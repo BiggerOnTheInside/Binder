@@ -87,7 +87,7 @@ public class Player extends HumanEntity {
 
 	@Override
 	public void a() {
-		PlayerConstants.DELTA_TIME = .01f; //(time - lastTime)/1000.0f;
+		PlayerConstants.DELTA_TIME = Time.getDelta(); //(time - lastTime)/1000.0f;
         //distance in mouse movement from the last getDX() call.
 		PlayerConstants.DELTA_X = Mouse.getDX();
         //distance in mouse movement from the last getDY() call.
@@ -132,27 +132,25 @@ public class Player extends HumanEntity {
         GL11.glLoadIdentity();
         //look through the cam before you draw anything
         cam.lookThrough();
-
-        System.out.println("Hello there!");
 	}
 
+	/**
+	 * @deprecated
+	 */
 	@Override
-	public void b() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void b() {}
+	
+	/**
+	 * @deprecated
+	 */
 	@Override
-	public void c() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void c() {}
 
+	/**
+	 * @deprecated
+	 */
 	@Override
-	public void d() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void d() {}
 
 	@Override
 	public void update() {

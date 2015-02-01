@@ -17,6 +17,9 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.glu.GLU;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class GameLoop {
 	private GameState state;
@@ -33,17 +36,20 @@ public class GameLoop {
 	}
 
 	public void run(){
+		fontRenderer = new FontRenderer();
+		
 		init();
 		state = GameState.Playing;
 		p = new Player("Kirk", 100, 100);
+		c.d();
 		
 		Mouse.setGrabbed(true);
-		while(!Display.isCloseRequested() && !Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
+		while(!Display.isCloseRequested() && !Keyboard.isKeyDown(Globals.EXIT_KEY)){
 			render();
 			update();
 			
 			Display.update();
-			Display.sync(60);
+			Display.sync(120);
 		}
 		
 		state = GameState.End;
@@ -51,32 +57,52 @@ public class GameLoop {
 	}
 
 	public void update(){
-		//EventManager.fireEvent(new PlayerMoveEvent(p));
+		Time.update();
+		
 		p.update();
 		
 		System.out.println(p.getLocation().x);
 	}
-	Chunk c = new Chunk(0, 0, 0);
+	World c = new World();
 	
 	public void render(){
 		if(state == GameState.Playing){
-			 render2D();
-			 render3D();
+			//render2D();
+			render3D();
 		}
 	}
 	
-	public void render2D(){}
+	private boolean is2D, is3D;
+	FontRenderer fontRenderer;
+	
+	public void render2D(){
+		glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(0, Binder.getDisplayMode().getWidth(), Binder.getDisplayMode().getHeight(), 0, -1, 1);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+      
+        fontRenderer.drawString("FPS: " + 10, 15, 25);
+
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+      
+        glViewport(0, 0, Binder.getDisplayMode().getWidth(), Binder.getDisplayMode().getHeight());
+        GLU.gluPerspective(45f, (float)(Binder.getDisplayMode().getWidth() / Binder.getDisplayMode().getHeight()), 0.001f, 1000f);      
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+	}
 	
 	public void render3D(){
-		 GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+		/* For some reason, needs commenting for camera to work :p */
+		//GL11.glLoadIdentity();
 		 
-		 /* For some reason, needs commenting for camera to work :p */
-		 //GL11.glLoadIdentity();
-		 
-		 c.b();
-		 BlockRenderer.renderBlock(Block.DIRT, 0f, 0f, 0f);
-		 BlockRenderer.renderWireframeBlock(Block.DIRT, 0f, 1f, 1f);
+		c.b();
+		BlockRenderer.renderBlock(Block.DIRT, 0f, 0f, 0f);
+		BlockRenderer.renderWireframeBlock(Block.DIRT, 0f, 1f, 1f);
 	}
+	
 	
 	public static Player getPlayerObject(){
 		return p;

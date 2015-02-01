@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.lwjgl.util.vector.Vector3f;
 
 public class World implements WorldObject {
-	private ArrayList<Chunk> chunks;
+	private ArrayList<Chunk> chunks = new ArrayList<Chunk>();
 	
 	@Override
 	public void a() {
@@ -20,7 +20,7 @@ public class World implements WorldObject {
 
 	@Override
 	public void b() {
-		for(Chunk a : (Chunk[])chunks.toArray()){
+		for(Chunk a : chunks){
 			a.b();
 		}
 	}
@@ -37,5 +37,19 @@ public class World implements WorldObject {
 		chunks.add(a);
 		chunks.add(b);
 		chunks.add(c);
+	}
+	
+	public void setBlock(Block b, float x, float y, float z){
+		int x1, y1, z1;
+		
+		x1 = (int) (x / 16);
+		y1 = (int) (y / 16);
+		z1 = (int) (z / 16);
+		
+		for(Chunk c : chunks){
+			if(c.position == new Vector3f(x1, y1, z1)){
+				c.e(b, x1, y1, z1);
+			}
+		}
 	}
 }

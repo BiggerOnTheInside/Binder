@@ -3,13 +3,22 @@
 /** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/blob/master/Binder.txt)   */
 /***************************************************************************************************************/
 
-package net.BiggerOnTheInside.Binder;
+package net.BiggerOnTheInside.Binder.block;
 
-public class PlayerConstants {
-    public static final float MOUSE_SENSITIVITY = 0.05f;
-    public static final float MOVEMENT_SPEED = 1.0f;
-    public static float DELTA_X;
-    public static float DELTA_Y;
-    public static float DELTA_TIME;
-    public static final int VIEW_DISTANCE = 5;
+import net.BiggerOnTheInside.Binder.Block;
+import net.BiggerOnTheInside.Binder.BlockFace;
+import net.BiggerOnTheInside.Binder.BlockTextureCoordinate;
+
+public class BlockBedrock extends Block {
+
+	@Override
+	public byte getID() {
+		return 4;
+	}
+
+	@Override
+	public BlockTextureCoordinate getTextureCoordinates(BlockFace a) {
+		return new BlockTextureCoordinate(0, 0);
+	}
+
 }
