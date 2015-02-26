@@ -2,21 +2,12 @@
 /** Copyright 2015 BiggerOnTheInside (development), all rights reserved.                                       */
 /** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/blob/master/Binder.txt)   */
 /***************************************************************************************************************/
-package net.BiggerOnTheInside.Binder.engine;
 
-import net.BiggerOnTheInside.Binder.BlockDirt;
+package me.wxwsk8er.Knapsack.Configuration;
 
-public abstract class Block {
-	public static BlockDirt DIRT = new BlockDirt();
-
-	public Block getBlock(byte id){
-		switch(id){
-			case 0:
-		}
-		
-		return null;
-	}
-	
-	public abstract byte getID();
-	public abstract BlockTextureCoordinate getTextureCoordinates();
+public interface Configuration extends ConfigurationSection{
+	public DefaultConfigurationOptions getOptions();
+	public Configuration getDefaults();
+	public void setDefaults(Configuration defaults);
+	public void addDefault(String path, Object object);
 }

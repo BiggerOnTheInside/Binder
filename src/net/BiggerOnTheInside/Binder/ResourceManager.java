@@ -8,7 +8,7 @@ package net.BiggerOnTheInside.Binder;
 
 public class ResourceManager {
 	private TextureManager textureManager;
-	private JSONManager jsonManager;
+	private JSONConfiguration jsonManager;
 	private String path;
 	
 	/* Note: Path is relative to the Binder class. */
@@ -20,14 +20,14 @@ public class ResourceManager {
 	
 	public void init(){
 		this.textureManager = new TextureManager(path + "/textures/terrain.png");
-		this.jsonManager = new JSONManager("Binder.json", false);
+		this.jsonManager = new JSONConfiguration("Binder.json", false);
 	}
 	
 	public TextureManager getTextureManager(){
 		return textureManager;
 	}
 	
-	public JSONManager getJSONManager(){
+	public JSONConfiguration getJSONManager(){
 		return jsonManager;
 	}
 }

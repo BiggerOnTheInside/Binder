@@ -3,17 +3,17 @@
 /** Released under the Binder License (https://github.com/BiggerOnTheInside/Licenses/blob/master/Binder.txt)   */
 /***************************************************************************************************************/
 
-package net.BiggerOnTheInside.Binder;
+package me.wxwsk8er.Knapsack.java;
 
-public class BlockAir extends Block{
+import me.wxwsk8er.Knapsack.Knapsack;
+import me.wxwsk8er.Knapsack.Configuration.JSONConfiguration;
 
-	@Override
-	public byte getID() {
-		return 0;
+public class JavaPlugin {
+	public void onEnable(){
+		
 	}
-
-	@Override
-	public BlockTextureCoordinate getTextureCoordinates(BlockFace a) {
-		return new BlockTextureCoordinate(-1, -1);
+	
+	public void onDisable(){
+		
 	}
 }
