@@ -5,21 +5,16 @@
 
 package net.BiggerOnTheInside.Binder;
 
-import java.awt.Font;
-import java.io.IOException;
+import java.util.HashMap;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.opengl.TextureLoader;
 
-import com.nishu.utils.Color4f;
 
 public class TextRenderer {
-	static TrueTypeFont ttf;
+	private Binder instance;
+	private HashMap<String, TrueTypeFont> fonts = new HashMap<String, TrueTypeFont>();
 	
-	public static void renderString(String s){
-		ttf = new TrueTypeFont(new Font("Times New Roman", Font.BOLD, 10), false);
+	public TextRenderer(){
 		
-		ttf.drawString(10f, 25f, s, Color.yellow);
 	}
 }

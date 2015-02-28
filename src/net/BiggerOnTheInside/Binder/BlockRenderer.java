@@ -5,24 +5,7 @@
 
 package net.BiggerOnTheInside.Binder;
 
-import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
-import static org.lwjgl.opengl.GL11.GL_LEQUAL;
-import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
-import static org.lwjgl.opengl.GL11.GL_NICEST;
-import static org.lwjgl.opengl.GL11.GL_PERSPECTIVE_CORRECTION_HINT;
-import static org.lwjgl.opengl.GL11.GL_PROJECTION;
-import static org.lwjgl.opengl.GL11.glDepthFunc;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glHint;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
-import static org.lwjgl.opengl.GL11.glMatrixMode;
-
-import java.awt.Font;
-
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.GLU;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.TrueTypeFont;
 
 public class BlockRenderer{
 	public static void renderBlock(Block b, float x, float y, float z) {

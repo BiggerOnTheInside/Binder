@@ -72,6 +72,9 @@ public class Binder {
         /* Set the function for depth to GL_LEQUAL. */
         GL11.glDepthFunc(GL11.GL_LEQUAL); 
 
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
         /* Enable face culling, basically don't render this face relative to the camera's position. */
         GL11.glEnable(GL11.GL_CULL_FACE);
         
