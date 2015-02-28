@@ -9,6 +9,7 @@ import java.util.Random;
 
 import org.lwjgl.util.vector.Vector3f;
 
+@SuppressWarnings("unused")
 public class Chunk implements WorldObject{
 	public static int CHUNK_SIZE = 16;
 	public static int CHUNK_TYPE_AIR = 0;
@@ -98,7 +99,7 @@ public class Chunk implements WorldObject{
 					int nz = (int) ((z - position.z));
 					
 					if(blocks[nx][ny][nz] != Block.AIR.getID() && !isTileNotInView(nx, ny, nz)){
-						BlockRenderer.renderBlock(Block.getBlock(blocks[nx][ny][nz]), (float)x, (float)y, (float)z);
+						//BlockRenderer.renderBlock(Block.getBlock(blocks[nx][ny][nz]), (float)x, (float)y, (float)z);
 					}
 				}
 			}
@@ -113,7 +114,6 @@ public class Chunk implements WorldObject{
 		for(int x = 0; x < CHUNK_SIZE - 1; x++){
 			for(int y = 0; y < CHUNK_SIZE - 1; y++){
 				for(int z = 0; z < CHUNK_SIZE - 1; z++){
-					blocks[x][y][z] = Block.BOOKCASE.getID();
 					
 					if(randGen.nextInt(10) == Chunk.CHUNK_AIR_CHANCE){
 						blocks[x][y][z] = Block.AIR.getID();
@@ -128,7 +128,6 @@ public class Chunk implements WorldObject{
 					}
 					
 					if(y > 6){
-						blocks[x][y][z] = Block.BOOKCASE.getID();
 					}
 				}
 			}

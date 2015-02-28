@@ -9,16 +9,15 @@ import net.BiggerOnTheInside.Binder.Block;
 import net.BiggerOnTheInside.Binder.BlockFace;
 import net.BiggerOnTheInside.Binder.BlockTextureCoordinate;
 
-public class BlockCobblestone extends Block{
+public class AirBlock extends Block{
 
 	@Override
 	public byte getID() {
-		return 4;
+		return 0;
 	}
 
 	@Override
 	public BlockTextureCoordinate getTextureCoordinates(BlockFace a) {
-		return new BlockTextureCoordinate(4, 0);
+		return new BlockTextureCoordinate(-1, -1);
 	}
-
 }

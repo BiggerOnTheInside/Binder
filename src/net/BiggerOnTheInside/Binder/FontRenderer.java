@@ -11,7 +11,8 @@ public class FontRenderer
 {
     private UnicodeFont font;
      
-    public FontRenderer()
+    @SuppressWarnings("unchecked")
+	public FontRenderer()
     {
         try
         {

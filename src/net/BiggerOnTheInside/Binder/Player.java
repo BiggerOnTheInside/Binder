@@ -30,6 +30,10 @@ public class Player extends HumanEntity {
 		cam.lookThrough();
 	}
 
+	public FirstPersonCamera getCamera(){
+		return this.cam;
+	}
+	
 	@Override
 	public boolean isAlive() {
 		return this.isAlive;
@@ -130,6 +134,7 @@ public class Player extends HumanEntity {
         }
         //set the modelview matrix back to the identity
         GL11.glLoadIdentity();
+        System.out.println(cam.getPosition().x + " " + cam.getPosition().y + " " + cam.getPosition().z );
         //look through the cam before you draw anything
         cam.lookThrough();
 	}

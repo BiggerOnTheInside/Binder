@@ -51,6 +51,9 @@ public class Binder {
 	 * <p>Sets up OpenGL.</p>
 	 */
 	public void initGL(){
+		int width = displayMode.getWidth();
+		int height = displayMode.getHeight();
+		
 		/* Enable 2D texturing. */
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		
@@ -79,7 +82,7 @@ public class Binder {
         GL11.glMatrixMode(GL11.GL_PROJECTION); 
         
         /* Reset the OpenGL configuration, loading our above prefrences. */
-        GL11.glLoadIdentity();
+        //GL11.glLoadIdentity();
 
         /* Set the perspective. */
         GLU.gluPerspective(45.0f, (float)displayMode.getWidth()/(float)displayMode.getHeight(),0.1f,100.0f);
@@ -96,7 +99,7 @@ public class Binder {
 	 * @throws LWJGLException Any error that LWJGL gives us.
 	 */
 	public void createWindow() throws LWJGLException{
-		Display.setFullscreen(true);
+		Display.setFullscreen(false);
         DisplayMode d[] = Display.getAvailableDisplayModes();
         for (int i = 0; i < d.length; i++) {
             if (d[i].getWidth() == 640

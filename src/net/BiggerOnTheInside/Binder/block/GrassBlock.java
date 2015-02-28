@@ -9,16 +9,26 @@ import net.BiggerOnTheInside.Binder.Block;
 import net.BiggerOnTheInside.Binder.BlockFace;
 import net.BiggerOnTheInside.Binder.BlockTextureCoordinate;
 
-public class BlockBookcase extends Block {
+public class GrassBlock extends Block {
 
 	@Override
 	public byte getID() {
-		return 3;
+		return 2;
 	}
 
 	@Override
 	public BlockTextureCoordinate getTextureCoordinates(BlockFace a) {
-		return new BlockTextureCoordinate(1, 0);
+		if(a == BlockFace.Back || a == BlockFace.Front || a == BlockFace.Left || a == BlockFace.Right){
+			return new BlockTextureCoordinate(7, 0);
+		}
+		else if(a == BlockFace.Top){
+			return new BlockTextureCoordinate(8, 0);
+		}
+		else if(a == BlockFace.Bottom){
+			return new BlockTextureCoordinate(5, 0);
+		}
+		
+		return new BlockTextureCoordinate(5, 0);
 	}
 
 }

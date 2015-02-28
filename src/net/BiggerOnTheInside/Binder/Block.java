@@ -4,17 +4,15 @@
 /***************************************************************************************************************/
 package net.BiggerOnTheInside.Binder;
 
-import net.BiggerOnTheInside.Binder.block.BlockAir;
-import net.BiggerOnTheInside.Binder.block.BlockBookcase;
-import net.BiggerOnTheInside.Binder.block.BlockDirt;
-import net.BiggerOnTheInside.Binder.block.BlockGrass;
+import net.BiggerOnTheInside.Binder.block.AirBlock;
+import net.BiggerOnTheInside.Binder.block.DirtBlock;
+import net.BiggerOnTheInside.Binder.block.GrassBlock;
 
 
 public abstract class Block {
-	public static BlockAir  AIR  = new BlockAir();
-	public static BlockDirt DIRT = new BlockDirt();
-	public static BlockGrass GRASS = new BlockGrass();
-	public static BlockBookcase BOOKCASE = new BlockBookcase();
+	public static AirBlock  AIR  = new AirBlock();
+	public static DirtBlock DIRT = new DirtBlock();
+	public static GrassBlock GRASS = new GrassBlock();
 	
 	public static Block getBlock(byte id){
 		switch(id){
@@ -24,8 +22,6 @@ public abstract class Block {
 				return Block.DIRT;
 			case 2:
 				return Block.GRASS;
-			case 3:
-				return Block.BOOKCASE;
 		}
 		
 		return null;
