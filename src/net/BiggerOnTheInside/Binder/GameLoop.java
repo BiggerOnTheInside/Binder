@@ -8,6 +8,7 @@ package net.BiggerOnTheInside.Binder;
 import java.awt.Font;
 import java.util.ArrayList;
 
+import me.wxwsk8er.Knapsack.ChatColor;
 import net.BiggerOnTheInside.Binder.event.EventManager;
 
 import org.lwjgl.input.Keyboard;
@@ -23,6 +24,7 @@ public class GameLoop {
 	private ResourceManager resourceManager;
 	static Player p;
 	private ArrayList<Chunk> chunks = new ArrayList<Chunk>();
+	public static int fps;
 	
 	public void init(){
 		System.setProperty("Binder.home", System.getProperty("user.home") + "/Binder/");
@@ -39,6 +41,8 @@ public class GameLoop {
 		init();
 		state = GameState.Playing;
 		p = new Player("Kirk", 100, 100);
+		textRenderer = new TextRenderer();
+		Time.start();
 		
 		for(int x = 0; x < 2; x++){
 			for(int y = 0; y < 1; y++){
@@ -52,14 +56,11 @@ public class GameLoop {
 			c.d();
 		}
 		
-		Font font = new Font("Times New Roman", Font.BOLD, 24);
-		
-		_font = new TrueTypeFont(font, false);
-		
+
 		Mouse.setGrabbed(true);
 		while(!Display.isCloseRequested() && !Keyboard.isKeyDown(Globals.EXIT_KEY)){
-			render();
 			update();
+			render();
 			
 			Display.update();
 			Display.sync(120);
@@ -70,13 +71,15 @@ public class GameLoop {
 	}
 
 	public void update(){
-		Time.update();
+		Time.updateFPS();
 		
 		p.update();
 		
-		System.out.println(p.getLocation().x);
+		//System.out.println(p.getLocation().x);
 	}
+	
 	World c = new World();
+	TextRenderer textRenderer;
 	
 	public void render(){
 		if(state == GameState.Playing){
@@ -96,7 +99,7 @@ public class GameLoop {
 	    GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
 	    Color.white.bind();
 	    
-	    _font.drawString(100, 25, "Hello world!", Color.red);
+	    renderDebug();
 	}
 	
 	private void render3D(){
@@ -107,6 +110,12 @@ public class GameLoop {
 		BlockRenderer.renderWireframeBlock(Block.DIRT, 0f, 1f, 1f);
 	}
 
+	private void renderDebug(){
+		int width = Binder.getDisplayMode().getWidth(), height = Binder.getDisplayMode().getHeight();
+
+		textRenderer.renderString(0, 0, "FPS: " + fps, ChatColor.BLACK);
+		textRenderer.renderString(0, 24, "Location: (" + (int)getPlayerObject().getLocation().getX() + ", " + (int)getPlayerObject().getLocation().getY() + ", " + (int)getPlayerObject().getLocation().getZ() + ")", ChatColor.BLACK);
+	}
 	
 	public static Player getPlayerObject(){
 		return p;

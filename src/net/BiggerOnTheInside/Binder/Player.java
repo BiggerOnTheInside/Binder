@@ -11,7 +11,6 @@ import org.lwjgl.util.vector.Vector3f;
  * @category Human/Player Control
  */ 
 public class Player extends HumanEntity {
-    
 	private FirstPersonCamera cam;
 	
 	public Player(String name, float maxLife, float life){
@@ -25,8 +24,8 @@ public class Player extends HumanEntity {
 		this.maxLife = maxLife;
 		this.life = life;
 		this.location = new Vector3f(0f, 0f, 0f);
-		
 		this.cam = new FirstPersonCamera(location.x, location.y, location.z);
+		
 		cam.lookThrough();
 	}
 
@@ -102,7 +101,6 @@ public class Player extends HumanEntity {
         //control cam pitch from y movement from the mouse
         cam.pitch(-PlayerConstants.DELTA_Y * PlayerConstants.MOUSE_SENSITIVITY);
 
-
         //when passing in the distrance to move
         //we times the movementSpeed with dt this is a time scale
         //so if its a slow frame u move more then a fast frame
@@ -134,9 +132,10 @@ public class Player extends HumanEntity {
         }
         //set the modelview matrix back to the identity
         GL11.glLoadIdentity();
-        System.out.println(cam.getPosition().x + " " + cam.getPosition().y + " " + cam.getPosition().z );
         //look through the cam before you draw anything
         cam.lookThrough();
+        
+        this.location = cam.getPosition();
 	}
 
 	/**

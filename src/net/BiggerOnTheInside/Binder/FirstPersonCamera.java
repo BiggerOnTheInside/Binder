@@ -27,9 +27,7 @@ public class FirstPersonCamera
         //instantiate position Vector3f to the x y z params.
         position = new Vector3f(x, y, z);
     }
-    public FirstPersonCamera() { // This is made so the line FPCameraController app = new FPCameraController(); will work
-        // TODO Auto-generated constructor stub
-    }
+    
     //increment the camera's current yaw rotation
     public void yaw(float amount)
     {
